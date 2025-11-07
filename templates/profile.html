@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile • Court Reserve</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Court Reserve</div>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('reservations') }}">Reservations</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('profile') }}">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Your Profile</h1>
+    <p>Manage your info, bookings, and preferences.</p>
+    <a href="#" class="btn">Edit Profile</a>
+  </section>
+
+  <section class="features">
+    <div class="feature">
+      <h2>Upcoming Bookings</h2>
+      <p>See your scheduled courts at a glance.</p>
+    </div>
+    <div class="feature">
+      <h2>History</h2>
+      <p>Review your past reservations and activity.</p>
+    </div>
+    <div class="feature">
+      <h2>Notifications</h2>
+      <p>Choose email or SMS updates for changes.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Court Reserve - Kidus Assefa. All rights reserved.</p>
+  </footer>
+</body>
+</html>

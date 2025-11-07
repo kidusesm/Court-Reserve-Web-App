@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Court Reserve</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a> |
+    <a href="/reservations">Reservations</a> |
+    <a href="/profile">Profile</a> |
+    <a href="/about">About</a>
+  </nav>
+  <hr>
+  {% block content %}{% endblock %}
+</body>
+</html>

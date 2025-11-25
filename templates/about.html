@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About • Court Reserve</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Court Reserve</div>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('reservations') }}">Reservations</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('profile') }}">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>About Court Reserve</h1>
+    <p>Simple, fast, and reliable court scheduling for everyone.</p>
+  </section>
+
+  <section class="features">
+    <div class="feature">
+      <h2>Our Mission</h2>
+      <p>Make recreational sports easier to access and organize.</p>
+    </div>
+    <div class="feature">
+      <h2>How It Works</h2>
+      <p>Browse courts, pick a time, and confirm—done in seconds.</p>
+    </div>
+    <div class="feature">
+      <h2>What’s Next</h2>
+      <p>Team bookings, waitlists, and live court occupancy.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Court Reserve - Kidus Assefa. All rights reserved.</p>
+  </footer>
+</body>
+</html>

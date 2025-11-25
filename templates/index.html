@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Court Reserve App</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Court Reserve</div>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('reservations') }}">Reservations</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('profile') }}">Profile</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Reserve Courts with Ease</h1>
+    <p>Book basketball, football, tennis, and volleyball courts/fields.</p>
+    
+    <a href="#" class="btn">Get Started</a>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="feature">
+      <h2>Easy Scheduling</h2>
+      <p>Find and reserve available courts in seconds.</p>
+    </div>
+    <div class="feature">
+      <h2>Team Management</h2>
+      <p>Invite teammates and manage games seamlessly.</p>
+    </div>
+    <div class="feature">
+      <h2>Real-Time Updates</h2>
+      <p>Stay updated with instant notifications and changes.</p>
+    </div>
+  </section>
+
+
+
+
+
+
+  <!-- Example Box with Emojis -->
+<div class="box">
+  <div>🏀</div>
+  <div>⚽</div>
+  <div>🏐</div>
+</div>
+
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Court Reserve - Kidus Assefa. All rights reserved.</p>
+  </footer>
+</body>
+</html>

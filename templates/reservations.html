@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reservations • Court Reserve</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Court Reserve</div>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('reservations') }}">Reservations</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('profile') }}">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Make a Reservation</h1>
+    <p>Select a sport, pick a court, and choose a time.</p>
+    <a href="#" class="btn">View Availability</a>
+  </section>
+
+  <section class="features">
+    <div class="feature">
+      <h2>Basketball</h2>
+      <p>Indoor/outdoor courts with real-time slots.</p>
+    </div>
+    <div class="feature">
+      <h2>Tennis</h2>
+      <p>Singles or doubles, clay or hard courts.</p>
+    </div>
+    <div class="feature">
+      <h2>Soccer & Volleyball</h2>
+      <p>Reserve fields and courts for your team.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Court Reserve - Kidus Assefa. All rights reserved.</p>
+  </footer>
+</body>
+</html>

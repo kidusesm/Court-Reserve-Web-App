@@ -1,40 +1,64 @@
 from flask import Flask, render_template, request
-from supabase import create_client
-import os
-#supabase client setup
-supabase = create_client(
-    os.getenv("https://favdctbtaoiisxjmlmcd.supabase.co"),
-    os.getenv("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZhdmRjdGJ0YW9paXN4am1sbWNkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM0OTY2NTMsImV4cCI6MjA3OTA3MjY1M30.H4DAW7NogBI8V0Y79Qjn4e-TurihgvHZ7SnD0GnwnzE")
-)
-
-with open('database/schema.sql', 'r') as file:
-    sql = file.read()
-    supabase.rpc('execute_sql', {'sql': sql}).execute()
-###
-
+import psycopg2
+import psycopg2.extras
 
 app = Flask(__name__)
+
+# --- Database connection helper ---
+def get_db_connection():
+    conn = psycopg2.connect(
+        "postgresql://postgres:WebApps123@@db.favdctbtaoiisxjmlmcd.supabase.co:5432/postgres"
+    )
+    return conn
+
 
 @app.route("/")  # default route
 def home():
     return render_template("index.html")
 
+
 @app.route("/reservations")
 def reservations():
-    reservations = [ # Fake data for demonstration
-        {"name": "Kidus", "court": "A", "time": "10:00 AM"},
-        {"name": "Sara", "court": "B", "time": "11:00 AM"},
-        {"name": "Mike", "court": "C", "time": "12:00 PM"}
-    ]
+    # Connect to the database
+    conn = get_db_connection()
+    cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+
+    # Query reservations joined with user, court, venue
+    cur.execute("""
+        select
+            r.id,
+            r.start_time,
+            r.end_time,
+            r.status,
+            r.price_total,
+            u.full_name,
+            u.email,
+            c.name  as court_name,
+            v.name  as venue_name
+        from reservations r
+        join users   u on u.id = r.user_id
+        join courts  c on c.id = r.court_id
+        join venues  v on v.id = c.venue_id
+        order by r.start_time;
+    """)
+
+    reservations = cur.fetchall()
+
+    cur.close()
+    conn.close()
+
     return render_template("reservations.html", reservations=reservations)
+
 
 @app.route("/about")
 def about():
     return render_template("about.html")
 
+
 @app.route("/profile")
 def profile():
     return render_template("profile.html")
+
 
 @app.route("/feedback", methods=["GET", "POST"])
 def feedback():
@@ -49,6 +73,7 @@ def feedback():
             <button type="submit">Submit</button>
         </form>
     '''
+
 
 if __name__ == "__main__":
     app.run(debug=True)

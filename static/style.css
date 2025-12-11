@@ -1,7 +1,7 @@
-/* Google Fonts Import */
+/* Google Fonts Import 
+   Used in all pages
+*/
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-
 
 /* Reset some defaults */
 * {
@@ -17,10 +17,10 @@ body {
 }
 
 p {
-    font-weight: 450;
+  font-weight: 450;
 }
 
-/* Navbar */
+/* Navbar - Used by .navbar in all pages */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -51,19 +51,22 @@ p {
   color: rgb(228, 198, 230);
   text-decoration: underline;
 }
-/* Hero */
+
+/* Hero Sections
+   Used by: .hero on home/about/profile/reservations pages
+*/
 .hero {
-    text-align: center;
-    padding: 4rem 2rem;
-    background:
-        linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
-        url('basketball-court-bg-image.png');
-    background-size: cover;
-    background-position: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+    url('basketball-court-bg-image.png');
+  background-size: cover;
+  background-position: center;
 }
 
-
 .hero h1 {
+  font-weight: 700;
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
@@ -72,6 +75,9 @@ p {
   margin-bottom: 2rem;
 }
 
+/* Hero Search Bar 
+   Used by: .hero-search on home page
+*/
 .hero-search {
   margin-top: 1.5rem;
   display: flex;
@@ -79,45 +85,53 @@ p {
   gap: 0.5rem;
 }
 
-.hero-search input{
+.hero-search input {
   width: min(100%, 420px);
   padding: 0.7rem 1rem;
   border-radius: 999px;
   border: 1px solid #ddd;
   font-size: 1rem;
   outline: none;
+  background-color: #ffffff;  /* added */
+  color: #111;                /* added */
 }
 
 .hero-search input:focus {
-    border-color: #111;
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.06);
+  border-color: #111;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.06);
 }
 
 .hero-search button {
-    padding: 0.7rem 1.4rem;
-    border-radius: 999px;
-    border: none;
-    background: #111;
-    color: #fff;
-    font-size: 0.95rem;
-    cursor: pointer;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  border: none;
+  background: #111;
+  color: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
 }
 
 .hero-search button:hover {
-    background: #303030;
+  background: #303030;
 }
 
+/* Buttons used by .btn*/
 .btn {
   display: inline-block;
   padding: 10px 20px;
   background: #222;
   color: #fff;
   text-decoration: none;
-  border-radius: 5px;  
+  border-radius: 5px;
 }
 .btn:hover {
   background: #303030;
 }
+.btn:hover {
+  background: #303030;
+  color: #fff;      
+}
+
 
 
 /* Features */
@@ -148,6 +162,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: #ffffff;  /* added */
 }
 
 main {
@@ -162,35 +177,131 @@ footer {
   color: #fff;
   width: 100%;
 }
-/* Footer end */
 
+/* Table Styles */
+table {
+  margin: 2rem auto;
+  border-collapse: collapse;
+  width: 80%;
+}
 
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
 
-/*  Experimental box  */
-.box {
-    display: flex;
-    margin: 0 auto;
-    left: 20%;
-    font-size: 50px;
+thead th {
+  border-bottom: 2px solid #ddd;
+}
 
-    border: 5px solid transparent;
-    background:
-        linear-gradient(#7c2b9c, rgb(32, 136, 76)) padding-box,
-        linear-gradient(to right, blue, red) border-box;
-    animation: gradient-rotate 3s linear infinite; /* Animation for rotating gradient */
-    
-    
-    border-radius: 25px;
-    background-clip: padding-box, border-box; /* background-clip for padding and border */
-    background-origin: border-box;              
+tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
 
-    justify-content: space-around;
-    align-items: last baseline;
-    height: 100px;
-    
-    background-color: #847a88;
+/* Reusable card component */
+.card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 10px 10px 8px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+/* Card title */
+.card h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 
 
+/* Card text */
+.card p {
+  color: #555;
+}
+/* Sport cards layout on reservations page */
+.sports-section {
+  padding: 3rem 2rem;
+  background: #fff;
+}
+
+.card-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Center "Your Reservations" section and its table */
+.reservation-list {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.reservation-table-wrapper table {
+  margin: 2rem auto;
+}
+
+/* Optional wrapper (for spacing in the about page) */
+.about-card-section {
+  padding: 3rem 2rem;
+  background: #fff;
+}
+
+
+
+
+/* box */
+.box {
+  display: flex;
+  margin: 0 auto;
+  left: 20%;
+  font-size: 50px;
+
+  border: 5px solid transparent;
+  background:
+    linear-gradient(#7c2b9c, rgb(32, 136, 76)) padding-box,
+    linear-gradient(to right, blue, red) border-box;
+  animation: gradient-rotate 3s linear infinite;
+
+  border-radius: 25px;
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+
+  justify-content: space-around;
+  align-items: last baseline;
+  height: 100px;
+
+  background-color: #847a88;
+}
+
+/* Sport cards layout on reservations page */
+.sports-section {
+  padding: 3rem 2rem;
+  background: #fff;
+}
+
+.card-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Center "Your Reservations" section and its table */
+.reservation-list {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.reservation-table-wrapper table {
+  margin: 2rem auto;
+}
+
+.about-card-section {
+  padding: 3rem 2rem;
+  background: #fff;
+}
 

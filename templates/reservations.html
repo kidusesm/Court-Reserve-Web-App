@@ -21,58 +21,66 @@
     </nav>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
     <h1>Make a Reservation</h1>
     <p>Select a sport, pick a court, and choose a time.</p>
-    <a href="#" class="btn">View Availability</a>
+    <a href="{{ url_for('availability') }}" class="btn">View Availability</a>
   </section>
 
-  <section class="features">
-    <div class="feature">
-      <h2>Basketball</h2>
-      <p>Indoor/outdoor courts with real-time slots.</p>
-    </div>
-    <div class="feature">
-      <h2>Tennis</h2>
-      <p>Singles or doubles, clay or hard courts.</p>
-    </div>
-    <div class="feature">
-      <h2>Soccer & Volleyball</h2>
-      <p>Reserve fields and courts for your team.</p>
+  <!-- Sport cards -->
+  <section class="sports-section">
+    <div class="card-grid">
+      <div class="card">
+        <h2>Basketball</h2>
+        <p>Indoor/outdoor courts with real-time slots.</p>
+      </div>
+
+      <div class="card">
+        <h2>Tennis</h2>
+        <p>Singles or doubles, clay or hard courts.</p>
+      </div>
+
+      <div class="card">
+        <h2>Soccer &amp; Volleyball</h2>
+        <p>Reserve fields and courts for your team.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ⭐ NEW SECTION: REAL RESERVATIONS DATA ⭐ -->
+  <!-- Your Reservations -->
   <section class="reservation-list">
     <h2>Your Reservations</h2>
 
     {% if reservations %}
-    <table class="reservation-table">
-      <thead>
-        <tr>
-          <th>User</th>
-          <th>Court</th>
-          <th>Venue</th>
-          <th>Start</th>
-          <th>End</th>
-          <th>Status</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for r in reservations %}
-        <tr>
-          <td>{{ r.full_name }}</td>
-          <td>{{ r.court_name }}</td>
-          <td>{{ r.venue_name }}</td>
-          <td>{{ r.start_time }}</td>
-          <td>{{ r.end_time }}</td>
-          <td>{{ r.status }}</td>
-          <td>${{ "%.2f"|format(r.price_total) }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+      <div class="reservation-table-wrapper">
+        <table class="reservation-table">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Court</th>
+              <th>Venue</th>
+              <th>Start</th>
+              <th>End</th>
+              <th>Status</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for r in reservations %}
+            <tr>
+              <td>{{ r.full_name }}</td>
+              <td>{{ r.court_name }}</td>
+              <td>{{ r.venue_name }}</td>
+              <td>{{ r.start_time }}</td>
+              <td>{{ r.end_time }}</td>
+              <td>{{ r.status }}</td>
+              <td>${{ "%.2f"|format(r.price_total) }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
     {% else %}
       <p>No reservations yet.</p>
     {% endif %}

@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <header class="navbar">
     <div class="logo">Court Reserve</div>
@@ -20,12 +21,30 @@
     </nav>
   </header>
 
+  <!-- HERO SECTION -->
   <section class="hero">
-    <h1>Your Profile</h1>
-    <p>Manage your info, bookings, and preferences.</p>
-    <a href="#" class="btn">Edit Profile</a>
+
+    {% if session.get('user_id') %}
+      <!-- LOGGED-IN VIEW -->
+      <h1>Your Profile</h1>
+      <p>Welcome, {{ session.get('user_name') }}!</p>
+
+      <a href="{{ url_for('reservations') }}" class="btn">View Reservations</a>
+      <a href="#" class="btn">Edit Profile</a>
+      <a href="{{ url_for('logout') }}" class="btn">Log Out</a>
+
+    {% else %}
+      <!-- LOGGED-OUT VIEW -->
+      <h1>Welcome to Court Reserve</h1>
+      <p>Create an account or log in to manage your bookings.</p>
+
+      <a href="{{ url_for('signup') }}" class="btn">Sign Up</a>
+      <a href="{{ url_for('login') }}" class="btn">Log In</a>
+    {% endif %}
+
   </section>
 
+  <!-- FEATURES SECTION -->
   <section class="features">
     <div class="feature">
       <h2>Upcoming Bookings</h2>
@@ -44,5 +63,6 @@
   <footer>
     <p>&copy; 2025 Court Reserve - Kidus Assefa. All rights reserved.</p>
   </footer>
+
 </body>
 </html>

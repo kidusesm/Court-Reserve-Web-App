@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Availability • Court Reserve</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Court Reserve</div>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('reservations') }}">Reservations</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('profile') }}">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Available Venues</h1>
+    <p>All courts and fields currently in the system.</p>
+  </section>
+
+  <section class="reservation-list">
+    {% if venues %}
+      <div class="reservation-table-wrapper">
+        <table class="reservation-table">
+          <thead>
+            <tr>
+              <th>Venue</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>State</th>
+              <th>ZIP</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for v in venues %}
+            <tr>
+              <td>{{ v.name }}</td>
+              <td>{{ v.address }}</td>
+              <td>{{ v.city }}</td>
+              <td>{{ v.state }}</td>
+              <td>{{ v.zip }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <p>No venues found.</p>
+    {% endif %}
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Court Reserve - Kidus Assefa. All rights reserved.</p>
+  </footer>
+</body>
+</html>

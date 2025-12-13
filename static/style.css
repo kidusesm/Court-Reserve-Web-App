@@ -132,6 +132,9 @@ p {
   color: #fff;      
 }
 
+.btn-small { padding: 8px 12px; font-size: 0.9rem; }
+.btn-danger { background: #c0392b; }
+.actions-cell { white-space: nowrap; }
 
 
 /* Features */

@@ -22,11 +22,11 @@
 
   <section class="hero">
     <h1>Available Venues</h1>
-    <p>All courts and fields currently in the system.</p>
+    <p>All venues currently in the system.</p>
   </section>
 
   <section class="reservation-list">
-    {% if venues %}
+    {% if venues and venues|length > 0 %}
       <div class="reservation-table-wrapper">
         <table class="reservation-table">
           <thead>
@@ -41,11 +41,11 @@
           <tbody>
             {% for v in venues %}
             <tr>
-              <td>{{ v.name }}</td>
-              <td>{{ v.address }}</td>
-              <td>{{ v.city }}</td>
-              <td>{{ v.state }}</td>
-              <td>{{ v.zip }}</td>
+              <td>{{ v.get('name', '') }}</td>
+              <td>{{ v.get('address', '') }}</td>
+              <td>{{ v.get('city', '') }}</td>
+              <td>{{ v.get('state', '') }}</td>
+              <td>{{ v.get('zip', '') }}</td>
             </tr>
             {% endfor %}
           </tbody>
@@ -53,6 +53,7 @@
       </div>
     {% else %}
       <p>No venues found.</p>
+      <p style="opacity:.75;">Check your terminal for: <b>DB ERROR in /availability</b></p>
     {% endif %}
   </section>
 
